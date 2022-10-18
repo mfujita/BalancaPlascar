@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,15 @@ namespace BalancaPlascar
             valorRecebido = valorRecebido + (char)cr;
 
             letras = Encoding.ASCII.GetBytes(valorRecebido);
+
+            SerialPort serialPort = new SerialPort("COM6", 9600, Parity.None, 8, StopBits.One);
+
+            if (!serialPort.IsOpen)
+                serialPort.Open();
+
+            serialPort.Write(Entrada);
+            serialPort.Close();
+            serialPort.Dispose();
         }
 
         public double GetWeight()
