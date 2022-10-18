@@ -43,9 +43,9 @@ namespace BalancaPlascar
                 Scales scales = new Scales(entrada);
                 lblRespValorRecebido.Text = scales.ReturnInput();
                 scales.SetVariables();
-                lblRespTara.Text = scales.tara.ToString();
-                lblRespMovimento.Text = scales.movimento.ToString();
-                lblRespErro.Text = scales.erro.ToString();
+                lblRespTara.Text = scales.Tara.ToString();
+                lblRespMovimento.Text = scales.Movimento.ToString();
+                lblRespErro.Text = scales.Erro.ToString();
                 lblRespPeso.Text = scales.GetWeight().ToString();
             }
         }
