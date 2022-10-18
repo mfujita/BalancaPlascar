@@ -54,91 +54,91 @@ namespace BalancaPlascar
         {
             try
             {
-                if (entrada[0].Equals('A') && letras[8] == (int)13)
+                if (entrada[0].Equals('A') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = true;
                     movimento = true;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('B') && letras[8] == (int)13)
+                else if (entrada[0].Equals('B') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = false;
                     movimento = true;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('C') && letras[8] == (int)13)
+                else if (entrada[0].Equals('C') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = true;
                     movimento = true;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('D') && letras[8] == (int)13)
+                else if (entrada[0].Equals('D') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = false;
                     movimento = false;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('E') && letras[8] == (int)13)
+                else if (entrada[0].Equals('E') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = true;
                     movimento = false;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('F') && letras[8] == (int)13)
+                else if (entrada[0].Equals('F') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = false;
                     movimento = false;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('G') && letras[8] == (int)13)
+                else if (entrada[0].Equals('G') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = true;
                     movimento = false;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('H') && letras[8] == (int)13)
+                else if (entrada[0].Equals('H') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = false;
                     movimento = true;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('H') && letras[8] == (int)13)
+                else if (entrada[0].Equals('H') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = false;
                     movimento = true;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('I') && letras[8] == (int)13)
+                else if (entrada[0].Equals('I') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = true;
                     movimento = false;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('L') && letras[8] == (int)13)
+                else if (entrada[0].Equals('L') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = false;
                     movimento = false;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('M') && letras[8] == (int)13)
+                else if (entrada[0].Equals('M') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = true;
                     movimento = false;
                     erro = false;
                     statusOk = true;
                 }
-                else if (entrada[0].Equals('@') && letras[8] == (int)13)
+                else if (entrada[0].Equals('@') && letras.Length == 9 && letras[8] == (int)13)
                 {
                     tara = false;
                     movimento = true;
