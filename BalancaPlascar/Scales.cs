@@ -33,10 +33,17 @@ namespace BalancaPlascar
             double peso = 0;
             if (statusOk)
             {
-                double kg = Convert.ToDouble(entrada.Substring(1, 3));
-                double gramas = Convert.ToDouble(entrada.Substring(5, 3))/1000;
+                if (entrada[0].Equals('A') || entrada[0].Equals('B') || entrada[0].Equals('C') || entrada[0].Equals('D') ||
+                    entrada[0].Equals('E') || entrada[0].Equals('G') || entrada[0].Equals('H') || entrada[0].Equals('I') ||
+                    entrada[0].Equals('L') || entrada[0].Equals('M') || entrada[0].Equals('@'))
+                {
+                    double kg = Convert.ToDouble(entrada.Substring(1, 3));
+                    double gramas = Convert.ToDouble(entrada.Substring(5, 3)) / 1000;
 
-                peso = Convert.ToDouble(kg) + Convert.ToDouble(gramas);
+                    peso = Convert.ToDouble(kg) + Convert.ToDouble(gramas);
+                }
+                else
+                    peso = 0F;
             }
             else
                 peso = 0F;
