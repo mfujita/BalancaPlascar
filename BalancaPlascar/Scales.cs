@@ -33,12 +33,11 @@ namespace BalancaPlascar
             double peso = 0;
             if (statusOk)
             {
-                double kg = Convert.ToDouble( entrada.Substring(1, 3));
+                double kg = Convert.ToDouble(entrada.Substring(1, 3));
                 double gramas = Convert.ToDouble(entrada.Substring(5, 3))/1000;
 
                 peso = Convert.ToDouble(kg) + Convert.ToDouble(gramas);
             }
-               
             else
                 peso = 0F;
             
@@ -100,13 +99,6 @@ namespace BalancaPlascar
                 {
                     tara = true;
                     movimento = false;
-                    erro = false;
-                    statusOk = true;
-                }
-                else if (entrada[0].Equals('H') && letras.Length == 9 && letras[8] == (int)13)
-                {
-                    tara = false;
-                    movimento = true;
                     erro = false;
                     statusOk = true;
                 }
