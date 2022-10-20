@@ -29,6 +29,7 @@ namespace BalancaPlascar
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtEntrada = new System.Windows.Forms.TextBox();
             this.lblEntrada = new System.Windows.Forms.Label();
             this.gbSaida = new System.Windows.Forms.GroupBox();
@@ -43,6 +44,7 @@ namespace BalancaPlascar
             this.lblPeso = new System.Windows.Forms.Label();
             this.lblValorRecebido = new System.Windows.Forms.Label();
             this.btnEnviar = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gbSaida.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,7 +182,10 @@ namespace BalancaPlascar
             this.btnEnviar.TabIndex = 3;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
-            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.Balanca_Load);
             // 
             // Balanca
             // 
@@ -219,6 +224,7 @@ namespace BalancaPlascar
         private System.Windows.Forms.Label lblPeso;
         private System.Windows.Forms.Label lblValorRecebido;
         private System.Windows.Forms.Button btnEnviar;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

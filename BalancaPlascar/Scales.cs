@@ -13,27 +13,31 @@ namespace BalancaPlascar
         public bool Tara { get; set; }
         public bool Movimento { get; set; }
         public bool Erro { get; set; }
-
         public string Entrada { get; set; }
 
         private byte[] letras;
 
-        public Scales(string valorRecebido)
+        private SerialPort serialPort;
+
+        public void StartCommunication()
         {
-            int cr = 13;
-
-            Entrada = valorRecebido;
-
-            valorRecebido = valorRecebido + (char)cr;
-
-            letras = Encoding.ASCII.GetBytes(valorRecebido);
-
-            SerialPort serialPort = new SerialPort("COM6", 9600, Parity.None, 8, StopBits.One);
-
-            if (!serialPort.IsOpen)
+            try
+            {
+                serialPort = new SerialPort("COM6", 9600, Parity.None, 8, StopBits.One);
                 serialPort.Open();
+            }
+            catch { }
+        }
 
-            serialPort.Write(Entrada);
+        public void WriteData(string entrada)
+        {
+            Entrada = entrada + (char)(0x0D);
+            letras = Encoding.ASCII.GetBytes(Entrada);
+            serialPort.Write(entrada);
+        }
+
+        public void CloseCommunication()
+        {
             serialPort.Close();
             serialPort.Dispose();
         }
@@ -70,99 +74,102 @@ namespace BalancaPlascar
         {
             try
             {
-                if (letras.Length != 9 || letras[8] != (int)0x0D)
-                {
-                    //TODO: PREENCHER O ERRO
-                    Tara = false;
-                    Movimento = false;
-                    Erro = true;
-                    StatusOk = false;
-                    return;
-                }
-                else
-                {
-                    char primeiraLetra = Entrada[0];
-
-                    switch (primeiraLetra)
+                if (letras != null)
+                { 
+                    if (letras.Length != 9 || letras[8] != (int)0x0D)
                     {
-                        case 'A':
-                            Tara = true;
-                            Movimento = true;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'B':
-                            Tara = false;
-                            Movimento = true;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'C':
-                            Tara = true;
-                            Movimento = true;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'D':
-                            Tara = false;
-                            Movimento = false;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'E':
-                            Tara = true;
-                            Movimento = false;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'F':
-                            Tara = false;
-                            Movimento = false;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'G':
-                            Tara = true;
-                            Movimento = false;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'H':
-                            Tara = false;
-                            Movimento = true;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'I':
-                            Tara = true;
-                            Movimento = false;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'L':
-                            Tara = false;
-                            Movimento = false;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case 'M':
-                            Tara = true;
-                            Movimento = false;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        case '@':
-                            Tara = false;
-                            Movimento = true;
-                            Erro = false;
-                            StatusOk = true;
-                            break;
-                        default:
-                            Tara = false;
-                            Movimento = false;
-                            Erro = true;
-                            StatusOk = false;
-                            break;
+                        //TODO: PREENCHER O ERRO
+                        Tara = false;
+                        Movimento = false;
+                        Erro = true;
+                        StatusOk = false;
+                        return;
+                    }
+                    else
+                    {
+                        char primeiraLetra = Entrada[0];
+
+                        switch (primeiraLetra)
+                        {
+                            case 'A':
+                                Tara = true;
+                                Movimento = true;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'B':
+                                Tara = false;
+                                Movimento = true;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'C':
+                                Tara = true;
+                                Movimento = true;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'D':
+                                Tara = false;
+                                Movimento = false;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'E':
+                                Tara = true;
+                                Movimento = false;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'F':
+                                Tara = false;
+                                Movimento = false;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'G':
+                                Tara = true;
+                                Movimento = false;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'H':
+                                Tara = false;
+                                Movimento = true;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'I':
+                                Tara = true;
+                                Movimento = false;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'L':
+                                Tara = false;
+                                Movimento = false;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case 'M':
+                                Tara = true;
+                                Movimento = false;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            case '@':
+                                Tara = false;
+                                Movimento = true;
+                                Erro = false;
+                                StatusOk = true;
+                                break;
+                            default:
+                                Tara = false;
+                                Movimento = false;
+                                Erro = true;
+                                StatusOk = false;
+                                break;
+                        }
                     }
                 }
             }

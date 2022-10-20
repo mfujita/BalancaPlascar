@@ -52,6 +52,7 @@
     <Compile Include="Balanca.Designer.cs">
       <DependentUpon>Balanca.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommunicationState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scales.cs" />
